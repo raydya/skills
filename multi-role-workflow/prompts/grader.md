@@ -36,6 +36,20 @@ Do NOT fix anything. Do NOT suggest architecture changes (unless the current app
 - Comments: are complex sections unexplained? Are comments lying or stale?
 - DRY violations: is the same logic copy-pasted?
 
+### 3.5 DESIGN PRINCIPLES — 6 PRINCIPLES CHECK
+For each principle, identify violations with specific locations:
+
+| Principle | Check |
+|-----------|-------|
+| **单一职责 Single Responsibility** | Does any class/module/function do more than one thing? Multiple reasons to change? |
+| **开闭原则 Open-Closed** | Is new behavior added by editing existing code instead of extension? Are conditionals growing? |
+| **里氏替换 Liskov Substitution** | Do subclasses weaken base class contracts? Unexpected exceptions? Different behavior for same signature? |
+| **接口隔离 Interface Segregation** | Are there fat interfaces? Do callers depend on methods they never use? |
+| **依赖倒置 Dependency Inversion** | Does high-level code import low-level details? Are abstractions owned by the wrong layer? Missing dependency injection? |
+| **迪米特法则 Law of Demeter** | Method chaining across strangers? `a.b.c.d()`? Coupling to indirect dependencies? |
+
+For each violation: file:line, what principle is broken, why it matters, fix direction.
+
 ### 4. ROBUSTNESS — EDGE CASES & ERRORS
 - Error handling: is every possible error path covered? What happens on network failure, timeout, invalid input?
 - Null/undefined safety: can any path produce a runtime null reference?
@@ -75,7 +89,7 @@ For each finding, use this exact format:
 
 **Severity:** Critical (must fix — broken/unsafe/wrong) | Major (should fix — gap/risk/quality) | Minor (nice to fix — style/clarity)
 
-**Category:** correctness | omission | quality | robustness | test-quality | performance | security | regression
+**Category:** correctness | omission | quality | design-principle | robustness | test-quality | performance | security | regression
 
 After listing all findings, provide a **VERDICT**:
 - PASS: all acceptance criteria met, no Critical/Major findings

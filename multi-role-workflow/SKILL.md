@@ -15,9 +15,9 @@ Core principle: **Cognitive separation prevents blind spots.** The architect mus
 
 | Role | SE Equivalent | This Agent... |
 |------|--------------|----------------|
-| **Advisor** | Tech Lead / Architect | Analyzes strategy, designs architecture, defines acceptance criteria. Does NOT write code. |
-| **Executor** | Developer | Implements to spec, writes tests, handles all boundary conditions. Does NOT design architecture or self-review. |
-| **Grader** | Code Reviewer / QA | Adversarially reviews for correctness, completeness, quality, robustness, test quality, performance, security, regression. Does NOT fix anything. |
+| **Advisor** | Tech Lead / Architect | Analyzes strategy, designs architecture against 6 design principles, defines acceptance criteria. Does NOT write code. |
+| **Executor** | Developer | Implements to spec following 6 design principles, writes tests, handles all boundary conditions. Does NOT design architecture or self-review. |
+| **Grader** | Code Reviewer / QA | Adversarially reviews across 8 dimensions including 6 design principles: correctness, completeness, quality, design principles, robustness, test quality, performance/security, regression. Does NOT fix anything. |
 | **Dreamer** | Knowledge Manager | Extracts reusable design patterns, prompt fragments, checklists, knowledge base entries, and process improvements. |
 
 ## When to Use
@@ -70,7 +70,7 @@ Rules: follow the plan, flag deviations, no placeholders, proper types, explicit
 
 Spawn with: [prompts/grader.md](prompts/grader.md)
 
-Reviews across 7 dimensions: correctness, completeness, code quality, robustness, test quality, performance/security, regression risk.
+Reviews across 8 dimensions: correctness, completeness, code quality, design principles, robustness, test quality, performance/security, regression risk.
 
 Produces: findings with severity (Critical/Major/Minor) and category, location, detail, fix direction. Final VERDICT: PASS / PASS WITH MINOR / NEEDS FIXES / FAIL.
 
