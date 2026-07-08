@@ -29,19 +29,41 @@ Task → Advisor → Executor → Grader → Executor(fix) → Dreamer → Done
 
 ## 安装
 
-### 方式一：克隆到用户技能目录（推荐，所有项目可用）
+### 方式一：npx skills（推荐，无需安装 Git）
+
+使用 [vercel-labs/skills](https://github.com/vercel-labs/skills) 生态标准工具，一键安装到全局或当前项目：
 
 ```bash
-git clone git@github.com:raydya/skills.git ~/.claude/skills/dya
+# 全局安装（所有项目可用）
+npx skills add raydya/skills
+
+# 安装到当前项目
+npx skills add raydya/skills --global=false
 ```
 
-### 方式二：克隆到项目技能目录（仅当前项目使用）
+### 方式二：npx degit（轻量，仅下载文件不含 Git 历史）
+
+```bash
+npx degit raydya/skills ~/.claude/skills/dya
+```
+
+### 方式三：Git 克隆到用户技能目录（所有项目可用）
+
+```bash
+# SSH
+git clone git@github.com:raydya/skills.git ~/.claude/skills/dya
+
+# HTTPS（无需配置 SSH Key）
+git clone https://github.com/raydya/skills.git ~/.claude/skills/dya
+```
+
+### 方式四：Git 克隆到项目技能目录（仅当前项目使用）
 
 ```bash
 git clone git@github.com:raydya/skills.git /path/to/your-project/.claude/skills/dya
 ```
 
-### 方式三：作为 Git 子模块
+### 方式五：作为 Git 子模块
 
 ```bash
 cd /path/to/your-project
@@ -73,21 +95,37 @@ skills/
 
 技能会持续迭代优化（prompt 模板改进、审查维度调整、设计原则更新等）。获取最新版本：
 
-### 克隆方式安装 → git pull
+### npx skills 安装 → 重新 add（覆盖更新）
+
+```bash
+npx skills add raydya/skills
+```
+
+### npx degit 安装 → 重新 degit
+
+```bash
+npx degit raydya/skills ~/.claude/skills/dya
+```
+
+### Git 克隆安装 → git pull
 
 ```bash
 cd ~/.claude/skills/dya && git pull origin main
 ```
 
-### 子模块方式安装 → 更新子模块
+### 子模块安装 → 更新子模块
 
 ```bash
 cd /path/to/your-project && git submodule update --remote .claude/skills/dya
 ```
 
-### 查看变更
+### 查看变更历史
 
 ```bash
+# 在线查看
+open https://github.com/raydya/skills/commits/main
+
+# 本地查看（Git 安装方式）
 cd ~/.claude/skills/dya && git log --oneline -10
 ```
 
