@@ -69,6 +69,28 @@ skills/
         └── dreamer.md            # Dreamer 子代理 prompt 模板
 ```
 
+## 更新
+
+技能会持续迭代优化（prompt 模板改进、审查维度调整、设计原则更新等）。获取最新版本：
+
+### 克隆方式安装 → git pull
+
+```bash
+cd ~/.claude/skills/dya && git pull origin main
+```
+
+### 子模块方式安装 → 更新子模块
+
+```bash
+cd /path/to/your-project && git submodule update --remote .claude/skills/dya
+```
+
+### 查看变更
+
+```bash
+cd ~/.claude/skills/dya && git log --oneline -10
+```
+
 ## 贡献
 
 技能遵循 TDD 流程开发（RED-GREEN-REFACTOR），新增或修改技能需要先编写压力测试场景验证基线行为。
