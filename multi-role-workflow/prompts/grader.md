@@ -36,7 +36,7 @@ Do NOT fix anything. Do NOT suggest architecture changes (unless the current app
 - Comments: are complex sections unexplained? Are comments lying or stale?
 - DRY violations: is the same logic copy-pasted?
 
-### 3.5 DESIGN PRINCIPLES — 6 PRINCIPLES CHECK
+### 3.5 DESIGN PRINCIPLES — 7 PRINCIPLES CHECK
 For each principle, identify violations with specific locations:
 
 | Principle | Check |
@@ -44,9 +44,10 @@ For each principle, identify violations with specific locations:
 | **单一职责 Single Responsibility** | Does any class/module/function do more than one thing? Multiple reasons to change? |
 | **开闭原则 Open-Closed** | Is new behavior added by editing existing code instead of extension? Are conditionals growing? |
 | **里氏替换 Liskov Substitution** | Do subclasses weaken base class contracts? Unexpected exceptions? Different behavior for same signature? |
-| **接口隔离 Interface Segregation** | Are there fat interfaces? Do callers depend on methods they never use? |
-| **依赖倒置 Dependency Inversion** | Does high-level code import low-level details? Are abstractions owned by the wrong layer? Missing dependency injection? |
-| **迪米特法则 Law of Demeter** | Method chaining across strangers? `a.b.c.d()`? Coupling to indirect dependencies? |
+| **依赖倒置 Dependency Inversion** | Does high-level code import low-level details? Are abstractions owned by the wrong layer? Missing dependency injection? Does the upper layer define the interface? |
+| **接口隔离 Interface Segregation** | Are there fat interfaces? Do callers depend on methods they never use? Is there one monolithic interface where multiple focused ones would be better? |
+| **最少知识 Law of Demeter (Least Knowledge)** | Method chaining across strangers? `a.b.c.d()`? Coupling to indirect dependencies? Does a class know about the whole system? |
+| **合成复用 Composite Reuse** | Is inheritance used where composition would be more flexible? Deep inheritance hierarchies (>2 levels)? Could the same functionality be achieved through aggregation/delegation? |
 
 For each violation: file:line, what principle is broken, why it matters, fix direction.
 

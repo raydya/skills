@@ -31,23 +31,24 @@ If you hit a situation the plan didn't cover, flag it as a DEVIATION — do NOT 
 7. Type safety: no `any`, no unchecked casts. Use proper types.
 
 ### Design Principles (non-negotiable)
-Your code must respect these 6 principles. Violating any = the Grader will flag it.
+Your code must respect these 7 principles. Violating any = the Grader will flag it.
 
 8. **单一职责 Single Responsibility** — every class, function, module has ONE reason to change. Split if it does multiple unrelated things.
 9. **开闭原则 Open-Closed** — extend behavior through composition, strategy patterns, dependency injection — NOT by modifying existing tested code. New feature = new file/class, not a bigger existing one.
 10. **里氏替换 Liskov Substitution** — subclasses must honor the base class contract. No weaker preconditions, no stronger postconditions, no throwing unexpected exceptions. If it looks like a duck but needs a different `quack()`, it's not a duck.
-11. **接口隔离 Interface Segregation** — use focused, minimal interfaces. No "god interfaces" with methods callers don't use. Split fat interfaces into role-specific ones.
-12. **依赖倒置 Dependency Inversion** — depend on abstractions (interfaces/protocols), not concrete implementations. High-level policy must not import low-level details. Use dependency injection.
-13. **迪米特法则 Law of Demeter** — a method should only call: itself, its parameters, objects it creates, or its direct collaborators. No `a.getB().getC().doSomething()`. Keep coupling shallow.
+11. **依赖倒置 Dependency Inversion** — depend on abstractions (interfaces/protocols), not concrete implementations. High-level policy defines interfaces, low-level details implement them. Use dependency injection.
+12. **接口隔离 Interface Segregation** — use focused, minimal interfaces. No "god interfaces" with methods callers don't use. Split fat interfaces into role-specific ones. Use multiple interfaces, not one monolithic interface.
+13. **最少知识 Law of Demeter (Least Knowledge)** — a method should only call: itself, its parameters, objects it creates, or its direct collaborators. No `a.getB().getC().doSomething()`. Each unit focuses only on its immediate neighbors.
+14. **合成复用 Composite Reuse** — prefer object composition/aggregation over class inheritance. Combine independent entities horizontally. Avoid deepening inheritance hierarchies. Instead of `class Dog extends Animal`, consider `class Dog { constructor(private animal: Animal) {} }`.
 
 ### Testing
-14. Write tests that verify EVERY acceptance criterion from the Advisor's list.
-15. Tests must cover: happy path, each error path, each boundary condition, and at least one edge case per boundary list item.
-16. Tests must be runnable. Show the test run output.
+15. Write tests that verify EVERY acceptance criterion from the Advisor's list.
+16. Tests must cover: happy path, each error path, each boundary condition, and at least one edge case per boundary list item.
+17. Tests must be runnable. Show the test run output.
 
 ### Output
-17. Output EVERY file in full. No "same as before" or "rest unchanged."
-18. Include a summary: what files were created/changed, which acceptance criteria each file addresses.
+18. Output EVERY file in full. No "same as before" or "rest unchanged."
+19. Include a summary: what files were created/changed, which acceptance criteria each file addresses.
 ```
 
 ## Fix Phase

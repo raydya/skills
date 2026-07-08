@@ -15,9 +15,9 @@ Core principle: **Cognitive separation prevents blind spots.** The architect mus
 
 | Role | SE Equivalent | This Agent... |
 |------|--------------|----------------|
-| **Advisor** | Tech Lead / Architect | Analyzes strategy, designs architecture against 6 design principles, defines acceptance criteria. Does NOT write code. |
-| **Executor** | Developer | Implements to spec following 6 design principles, writes tests, handles all boundary conditions. Does NOT design architecture or self-review. |
-| **Grader** | Code Reviewer / QA | Adversarially reviews across 8 dimensions including 6 design principles: correctness, completeness, quality, design principles, robustness, test quality, performance/security, regression. Does NOT fix anything. |
+| **Advisor** | Tech Lead / Architect | Analyzes strategy, designs architecture against 7 design principles, defines acceptance criteria. Does NOT write code. |
+| **Executor** | Developer | Implements to spec following 7 design principles, writes tests, handles all boundary conditions. Does NOT design architecture or self-review. |
+| **Grader** | Code Reviewer / QA | Adversarially reviews across 8 dimensions including 7 design principles: correctness, completeness, quality, design principles, robustness, test quality, performance/security, regression. Does NOT fix anything. |
 | **Dreamer** | Knowledge Manager | Extracts reusable design patterns, prompt fragments, checklists, knowledge base entries, and process improvements. |
 
 ## When to Use
